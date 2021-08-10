@@ -6,7 +6,8 @@
 
     $dovoljeno = [
         $root_path.'/prijava.php',
-        $root_path.'/prijava_check.php'
+        $root_path.'/prijava_check.php',
+        $root_path.'/profesorji.php'
     ];
 
 

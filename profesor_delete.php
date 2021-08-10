@@ -1,7 +1,7 @@
 <?php
     include_once "seja.php";
 
-    //adminOnly();
+    adminOnly();
     
     include_once "db.php";
 

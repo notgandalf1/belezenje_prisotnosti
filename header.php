@@ -14,7 +14,7 @@ include_once "seja.php";
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Beleženje prisotnosti</title>
-        <!-- Favicon-->
+        <!-- Favicon - moja slikica je boljsa :D-->
         <link rel="icon" type="image/x-icon" href="assets/feather.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -30,16 +30,22 @@ include_once "seja.php";
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Moj Profil</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Dodaj študenta</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>
+                        
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>                     
+                        
                         <?php
-                            //ce ni prijavljen se vidi prijava, drugace odjava
+                            //ce ni prijavljen se vidi prijava in seznam profesorjev, če je prijavljen se pokažejo 
+                            //se ostali gumbi in se gumb prijava skrije
                             if(!isset($_SESSION['profesor_id'])){
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="prijava.php">Prijava</a></li>';
                             }
                             else {
+                                
+                                if(isAdmin()) {
+                                    echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Dodaj študenta</a></li>';
+                                }
+                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>';
+                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Moj Profil</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="odjava.php">Odjava</a></li>';
                             }
                         ?>

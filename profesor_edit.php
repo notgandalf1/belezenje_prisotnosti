@@ -1,7 +1,7 @@
 <?php
     include_once "header.php";
 
-    //adminOnly();
+    adminOnly();
 
     include_once "db.php";
 
