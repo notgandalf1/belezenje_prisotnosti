@@ -3,9 +3,9 @@
     include_once "db.php";
 
     
-    //if(isAdmin()) {
+    if(isAdmin()) {
         echo '<a href="profesor_add.php" class="btn btn-primary">Dodaj profesorja</a>';
-    //}
+    }
 
 ?>
 

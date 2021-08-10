@@ -1,6 +1,6 @@
 <?php
 
-//include_once "session.php";
+include_once "seja.php";
 
 
 ?>
@@ -34,8 +34,15 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Dodaj študenta</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Prijava</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Odjava</a></li>
+                        <?php
+                            //ce ni prijavljen se vidi prijava, drugace odjava
+                            if(!isset($_SESSION['profesor_id'])){
+                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="prijava.php">Prijava</a></li>';
+                            }
+                            else {
+                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="odjava.php">Odjava</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <?php
 
-//include_once "session.php";
+include_once "seja.php";
 include_once "db.php";
 
 $id = (int) $_GET['id'];

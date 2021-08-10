@@ -1,6 +1,6 @@
 <?php
 
-//include_once "session.php";
+include_once "seja.php";
 include_once "db.php";
 
 $ime = $_POST['ime'];
