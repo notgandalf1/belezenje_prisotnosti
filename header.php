@@ -41,9 +41,7 @@ include_once "seja.php";
                             }
                             else {
                                 
-                                if(isAdmin()) {
-                                    echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Dodaj študenta</a></li>';
-                                }
+                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="studenti.php">Študenti</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesor.php?id='.$_SESSION['profesor_id'].'">Moj Profil</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="odjava.php">Odjava</a></li>';
