@@ -20,7 +20,9 @@
         
 
         echo '<div class="predmet">';
+        echo '<a href="predmet.php?id='.$row['id'].'" class="pisava-gumbi">';
         echo $row['leto_izvajanja'].' '.$row['ime_predmeta'];
+        echo '</a>';
         echo '<a href="predmet_edit.php?id='.$row['id'].'" class="btn btn-primary" >Uredi</a> '; 
         echo '<a href="predmet_delete.php?id='.$row['id'].' " class="btn btn-primary" onclick="return confirm(\'Prepričani?\')">Izbriši</a> ';
         echo '</div>';
