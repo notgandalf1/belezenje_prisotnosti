@@ -11418,6 +11418,7 @@ html {
 }
 
 .masthead {
+  min-height: 100vh; /* 100vh za full page */
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
 }
@@ -11505,6 +11506,6 @@ html {
 }
 
 .vsebina-strani {
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }

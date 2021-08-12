@@ -35,18 +35,18 @@ include_once "seja.php";
                             //ce uporabnik/profesor ni prijavljen vidi le naslov in je vedno preusmerjen na prijavo
                             //ce je prijavljen vidi navigacijske gumbe
                             if(isset($_SESSION['profesor_id'])){
-                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>';
-                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="studenti.php">Študenti</a></li>';
-                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>';
-                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesor.php?id='.$_SESSION['profesor_id'].'">Moj Profil</a></li>';
-                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="odjava.php">Odjava</a></li>';
+                                echo '<li class="nav-item mx-3 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>';
+                                echo '<li class="nav-item mx-3 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="studenti.php">Študenti</a></li>';
+                                echo '<li class="nav-item mx-3 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>';
+                                echo '<li class="nav-item mx-3 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesor.php?id='.$_SESSION['profesor_id'].'">Moj Profil</a></li>';
+                                echo '<li class="nav-item mx-3 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="odjava.php">Odjava</a></li>';
                             }
                         ?>
                     </ul>
                 </div>
             </div>
         </nav>
-        <section class="masthead bg-primary text-black text-left ">
+        <section class="masthead     bg-primary text-black text-left ">
             <div class="vsebina-strani">
 
         
