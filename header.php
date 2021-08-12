@@ -29,18 +29,13 @@ include_once "seja.php";
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>                     
-                        
+                <h2 style="color:white">Beleženje prisotnosti</h2>
+                <ul class="navbar-nav ms-auto">                    
                         <?php
-                            //ce ni prijavljen se vidi prijava in seznam profesorjev, če je prijavljen se pokažejo 
-                            //se ostali gumbi in se gumb prijava skrije
-                            if(!isset($_SESSION['profesor_id'])){
-                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="prijava.php">Prijava</a></li>';
-                            }
-                            else {
-                                
+                            //ce uporabnik/profesor ni prijavljen vidi le naslov in je vedno preusmerjen na prijavo
+                            //ce je prijavljen vidi navigacijske gumbe
+                            if(isset($_SESSION['profesor_id'])){
+                                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesorji.php">Profesorji</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="studenti.php">Študenti</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">Moji predmeti</a></li>';
                                 echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="profesor.php?id='.$_SESSION['profesor_id'].'">Moj Profil</a></li>';
@@ -51,6 +46,6 @@ include_once "seja.php";
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-black text-left ">
+        <section class="masthead bg-primary text-black text-left ">
 
         

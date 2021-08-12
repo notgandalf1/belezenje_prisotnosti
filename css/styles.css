@@ -4221,7 +4221,7 @@ textarea.form-control-lg {
     overflow-y: visible;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 0px) { /*bilo nastavljeno na 992px, in je ob manjsem oknu zginilo, nisem nasel drugega fixa kot da sem nastavil na 0px*/
   .navbar-expand-lg {
     flex-wrap: nowrap;
     justify-content: flex-start;
