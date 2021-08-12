@@ -11503,3 +11503,8 @@ html {
   color: black;
   text-decoration: none;
 }
+
+.vsebina-strani {
+  padding-left: 10%;
+  padding-right: 10%;
+}
