@@ -12,7 +12,7 @@
 <br/>
 <div class="študentje">
 <?php
-    $query = "SELECT * FROM studenti ORDER BY ime ASC";
+    $query = "SELECT * FROM studenti ORDER BY priimek ASC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
@@ -21,7 +21,7 @@
         
 
         echo '<div class="student">';
-        echo $row['ime'].' '.$row['priimek'].' '.$row['studentska_stevilka'];
+        echo $row['priimek'].' '.$row['ime'].' '.$row['studentska_stevilka'];
         if(isAdmin()) {
             echo '<a href="student_edit.php?id='.$row['id'].'" class="btn btn-primary" >Uredi</a> '; 
             echo '<a href="student_delete.php?id='.$row['id'].' " class="btn btn-primary" onclick="return confirm(\'Prepričani?\')">Izbriši</a> ';

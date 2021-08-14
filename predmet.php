@@ -17,17 +17,19 @@
 
 <?php
 echo '<a href="predavanje_add.php?id='.$id.'" class="btn btn-primary">Dodaj predavanje</a>';
-echo '<a href="studenti_predmeti_add.php" class="btn btn-primary">Dodaj študente</a>';
+echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dodaj/odstrani študente</a>';
 ?>
 <div class="table-responsive">
     <table class="table table-bordered table-hover table-sm table-primary">
     <thead>
         <tr>
-        <th scope="col"></th>
+        <th>ŠTUDENTI</th>
         <?php
-            //izpis predavanj v tabelo
+            //izpis predavanj tega predmeta v tabelo
 
-            $query = "SELECT * FROM predavanja ORDER BY datum_izvajanja ASC";
+            $query = "SELECT * FROM predavanja 
+                        WHERE id_predmet = $id
+                        ORDER BY datum_izvajanja ASC";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
 
@@ -45,8 +47,38 @@ echo '<a href="studenti_predmeti_add.php" class="btn btn-primary">Dodaj študent
     </thead>
     <tbody>
         <tr>
-        <th scope="row">Študent</th>
-        <td>checkbox prisotnosti</td>
+        <?php
+            //izpis študentov tega predmeta v tabelo
+
+            $query = "SELECT * FROM studenti st 
+                        INNER JOIN studenti_predmeti sp
+                        ON st.id = sp.id_student
+                        WHERE sp.id_predmet = $id
+                        ORDER BY st.priimek ASC";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+
+            while($row = $stmt->fetch()) {
+                
+                echo '<tr>';
+                echo '<th>'.$row['priimek'].' '.$row['ime'];
+                echo '</th>';
+                
+                //naredi en cell za vsako predavanje
+                $query = "SELECT * FROM predavanja WHERE id_predmet=?";
+                $stmt2 = $pdo->prepare($query);
+                $stmt2->execute([$id]);
+
+                while($row2 = $stmt2->fetch()) {
+                    echo '<th>checkbox</th>';
+                }
+
+
+                echo '</tr>';
+                
+                
+            }
+        ?>
         </tr>
     </tbody>
     </table>
