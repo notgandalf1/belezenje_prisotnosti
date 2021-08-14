@@ -28,10 +28,10 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
             //izpis predavanj tega predmeta v tabelo
 
             $query = "SELECT * FROM predavanja 
-                        WHERE id_predmet = $id
+                        WHERE id_predmet = ?
                         ORDER BY datum_izvajanja ASC";
             $stmt = $pdo->prepare($query);
-            $stmt->execute();
+            $stmt->execute([$id]);
 
             while($row = $stmt->fetch()) {
                 
@@ -47,37 +47,64 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
     </thead>
     <tbody>
         <tr>
-        <?php
+        <?php            
+                     
             //izpis študentov tega predmeta v tabelo
-
             $query = "SELECT * FROM studenti st 
                         INNER JOIN studenti_predmeti sp
                         ON st.id = sp.id_student
-                        WHERE sp.id_predmet = $id
+                        WHERE sp.id_predmet = ?
                         ORDER BY st.priimek ASC";
             $stmt = $pdo->prepare($query);
-            $stmt->execute();
+            $stmt->execute([$id]);
 
+            echo '<form action="prisotnost_insert.php" method="post">';
+            echo '<input type="hidden" value = "'.$id.'" name="id_predmet"/>';
+            
+            $i = 0; //stevec, da se izognemo ponovitvam pošiljanja idja predavanj pri vsakem novem študentu
+            //row so podatki o trenutnem studentu
             while($row = $stmt->fetch()) {
                 
                 echo '<tr>';
                 echo '<th>'.$row['priimek'].' '.$row['ime'];
                 echo '</th>';
-                
+                echo '<input type="hidden" value = "'.$row['id_student'].'" name="studentiVsi[]"/>';
+
                 //naredi en cell za vsako predavanje
                 $query = "SELECT * FROM predavanja WHERE id_predmet=?";
                 $stmt2 = $pdo->prepare($query);
                 $stmt2->execute([$id]);
 
+                //row2 so podatki o trenutnem predavanju
                 while($row2 = $stmt2->fetch()) {
-                    echo '<th>checkbox</th>';
+                    
+                    if($i==0) echo '<input type="hidden" value = "'.$row2['id'].'" name="predavanjaVsa[]"/>';
+
+                    echo '<th style="text-align:center">';
+                    //struktura stringa idstudenta|idpredavanja
+                    $string = $row['id_student'].'|'.$row2['id'];
+                    
+                    //pošlje array stringov z idji
+
+                    $query = "SELECT * FROM prisotnost WHERE id_student=? && id_predavanje=?";
+                    $stmt4 = $pdo->prepare($query);
+                    $stmt4->execute([$row['id_student'],$row2['id']]);
+                    $result = $stmt4->fetch();
+                    
+                    if(isset($result['prisotnost'])) {
+                        echo '<input type="checkbox" checked="checked" name="prisotnost[]" value="'.$string.'"/>';
+                    }
+                    else {
+                        echo '<input type="checkbox" name="prisotnost[]" value="'.$string.'"/>';
+                    }
+                    
                 }
-
-
-                echo '</tr>';
-                
-                
+                $i++;
+                echo '</tr>'; 
             }
+            echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
+            echo '</form>';
+            
         ?>
         </tr>
     </tbody>
