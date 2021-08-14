@@ -309,7 +309,7 @@ table {
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  color: #6c757d;
+  color: white;
   text-align: left;
 }
 
@@ -11508,4 +11508,8 @@ html {
 .vsebina-strani {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.tabela-gumb{
+  float:right;
 }

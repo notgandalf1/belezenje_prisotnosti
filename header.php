@@ -46,7 +46,7 @@ include_once "seja.php";
                 </div>
             </div>
         </nav>
-        <section class="masthead     bg-primary text-black text-left ">
+        <section class="masthead bg-primary text-black text-left ">
             <div class="vsebina-strani">
 
         
