@@ -11513,3 +11513,7 @@ html {
 .tabela-gumb{
   float:right;
 }
+
+.tabela-stolpec{
+  min-width: 150px;
+}

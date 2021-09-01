@@ -23,7 +23,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
     <table class="table table-bordered table-hover table-sm table-primary">
     <thead>
         <tr>
-        <th>ŠTUDENTI</th>
+        <th class="tabela-stolpec">ŠTUDENTI</th>
         <?php
             //izpis predavanj tega predmeta v tabelo
 
@@ -36,7 +36,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
             while($row = $stmt->fetch()) {
                 
                 
-                echo '<th scope="col">'.$row['datum_izvajanja'];
+                echo '<th class="tabela-stolpec">'.$row['datum_izvajanja'];
                 echo '<a class="tabela-gumb" href="predavanje_delete.php?id='.$row['id'].' " onclick="return confirm(\'Prepričani?\')">Izbriši</a> ';
                 echo '</th>';
                 
@@ -80,7 +80,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
                     
                     if($i==0) echo '<input type="hidden" value = "'.$row2['id'].'" name="predavanjaVsa[]"/>';
 
-                    echo '<th style="text-align:center">';
+                    echo '<td style="text-align:center">';
                     //struktura stringa idstudenta|idpredavanja
                     $string = $row['id_student'].'|'.$row2['id'];
                     
@@ -97,6 +97,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
                     else {
                         echo '<input type="checkbox" name="prisotnost[]" value="'.$string.'"/>';
                     }
+                    echo '</td>';
                     
                 }
                 $i++;
