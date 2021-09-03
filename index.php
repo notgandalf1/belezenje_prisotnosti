@@ -8,7 +8,7 @@
 ?>
 
 <br/>
-<div class="predmeti">
+<div class="obroba">
 <?php
     $id = $_SESSION['profesor_id'];
     $query = "SELECT * FROM predmeti WHERE id_profesor=? ORDER BY ime_predmeta ASC";
@@ -19,13 +19,20 @@
     while($row = $stmt->fetch()) {
         
 
-        echo '<div class="predmet">';
-        echo '<a href="predmet.php?id='.$row['id'].'" class="pisava-gumbi">';
-        echo $row['leto_izvajanja'].' '.$row['ime_predmeta'];
-        echo '</a>';
-        echo '<a href="predmet_edit.php?id='.$row['id'].'" class="btn btn-primary" >Uredi</a> '; 
-        echo '<a href="predmet_delete.php?id='.$row['id'].' " class="btn btn-primary" onclick="return confirm(\'Prepričani?\')">Izbriši</a> ';
+        echo '<div class="vsi-elementi">';
+            echo '<div class="element-left">';
+                echo '<a href="predmet.php?id='.$row['id'].'" class="pisava-gumbi">';
+                    echo $row['ime_predmeta'].'&emsp;'.$row['leto_izvajanja'];
+                echo '</a>';
+            echo '</div>';
+            echo '<div class="element-middle">';
+            echo '</div>';  
+            echo '<div class="element-right">';
+                echo '<a href="predmet_edit.php?id='.$row['id'].'" class="btn btn-primary" >Uredi</a> '; 
+                echo '<a href="predmet_delete.php?id='.$row['id'].' " class="btn btn-primary" onclick="return confirm(\'Prepričani?\')">Izbriši</a> ';
+            echo '</div>';
         echo '</div>';
+        echo '<hr>';
     }
 ?>
 </div>

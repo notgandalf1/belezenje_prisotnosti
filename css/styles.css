@@ -4030,6 +4030,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  overflow-x: auto; /*scroll bar*/
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -11510,6 +11511,11 @@ html {
   margin-right: 10%;
 }
 
+.vsebina-strani-forme {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 .tabela-gumb{
   float:right;
 }
@@ -11517,3 +11523,43 @@ html {
 .tabela-stolpec{
   min-width: 150px;
 }
+
+.obroba {
+  border-style: solid;
+  border-color: white;
+  border-width: thin;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 10px; 
+}
+
+.vsi-elementi:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+
+.element-left {
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  width: 40%;
+}
+
+.element-middle {
+  float: left;
+  width: 35%;
+}
+
+.element-right {
+  float: right;
+  text-align: right;
+  padding: 5px;
+  margin: 5px;
+  width: 25%;
+}
+
+
+

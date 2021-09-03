@@ -15,9 +15,16 @@
 <h1><?php echo $predmet['ime_predmeta']?></h1>
 <h3><?php echo $predmet['leto_izvajanja'];?></h3>
 
+
+<div class = "obroba">
+
 <?php
 echo '<a href="predavanje_add.php?id='.$id.'" class="btn btn-primary">Dodaj predavanje</a>';
 echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dodaj/odstrani študente</a>';
+
+echo '<form action="prisotnost_insert.php" method="post">';
+echo '<input type="hidden" value = "'.$id.'" name="id_predmet"/>';
+echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
 ?>
 <div class="table-responsive">
     <table class="table table-bordered table-hover table-sm table-primary">
@@ -58,8 +65,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
             $stmt = $pdo->prepare($query);
             $stmt->execute([$id]);
 
-            echo '<form action="prisotnost_insert.php" method="post">';
-            echo '<input type="hidden" value = "'.$id.'" name="id_predmet"/>';
+            
             
             $i = 0; //stevec, da se izognemo ponovitvam pošiljanja idja predavanj pri vsakem novem študentu
             //row so podatki o trenutnem studentu
@@ -71,7 +77,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
                 echo '<input type="hidden" value = "'.$row['id_student'].'" name="studentiVsi[]"/>';
 
                 //naredi en cell za vsako predavanje
-                $query = "SELECT * FROM predavanja WHERE id_predmet=?";
+                $query = "SELECT * FROM predavanja WHERE id_predmet=? ORDER BY datum_izvajanja ASC";
                 $stmt2 = $pdo->prepare($query);
                 $stmt2->execute([$id]);
 
@@ -103,9 +109,7 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
                 $i++;
                 echo '</tr>'; 
             }
-            echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
-            echo '</form>';
-            
+                        
         ?>
         </tr>
     </tbody>
@@ -113,7 +117,9 @@ echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dod
 </div>
 
 
-
 <?php
+echo '</form>';
+echo '</div>';
+
 include_once "footer.php";
 ?>
