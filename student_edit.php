@@ -14,9 +14,10 @@
     //iz baze preberem vse o studentu, ki ga urejam
     $student = $stmt->fetch();
 ?>
-<div class = "vsebina-strani-forme">
-    <h2>Uredi študenta</h2>
+    
     <div class="obroba">
+        <h2>Uredi študenta</h2>
+        <br>
 
         <form action="student_update.php" method="post">
             <input type="hidden" value = "<?php echo $student['id']; ?>" name="id"/>
@@ -27,7 +28,6 @@
             <input type="submit" class="btn btn-primary" value="Shrani"/>
         </form>
     </div>
-</div>
 <?php
 include_once "footer.php";
 ?>

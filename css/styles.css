@@ -11511,17 +11511,12 @@ html {
   margin-right: 10%;
 }
 
-.vsebina-strani-forme {
-  margin-left: 25%;
-  margin-right: 25%;
-}
-
 .tabela-gumb{
   float:right;
 }
 
 .tabela-stolpec{
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .obroba {
@@ -11530,7 +11525,8 @@ html {
   border-width: thin;
   border-radius: 15px;
   padding: 20px;
-  margin-top: 10px; 
+  margin: 0 auto; 
+  max-width: 1000px;
 }
 
 .vsi-elementi:after {
@@ -11550,7 +11546,7 @@ html {
 
 .element-middle {
   float: left;
-  width: 35%;
+  width: 20%;
 }
 
 .element-right {
@@ -11558,8 +11554,17 @@ html {
   text-align: right;
   padding: 5px;
   margin: 5px;
-  width: 25%;
+  width: 40%;
 }
 
+.profil {
+  text-align: center;
+}
 
-
+.slika {
+  max-width: 100%;
+  max-height: 500px;
+}
+ .dinamicni-font {
+   font-size: min(3.5vw, 30px);
+ }

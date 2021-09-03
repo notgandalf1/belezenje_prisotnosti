@@ -3,10 +3,12 @@
 
 ?>
 
-<div class = "vsebina-strani-forme">
 
-    <h3>Dodaj novo predavanje</h3>
+
+    
     <div class ="obroba">
+        <h3>Dodaj novo predavanje</h3>
+        <br>
 
         <form action="predavanje_insert.php" method="post">
             <input type="hidden" value = "<?php echo $_GET['id']; ?>" name="id_predmet"/>
@@ -15,7 +17,7 @@
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>
-</div>
+    
 <?php
     include_once "footer.php";
 ?>

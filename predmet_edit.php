@@ -15,11 +15,12 @@
 
 ?>
 
-<div class = "vsebina-strani-forme">
 
-    <h3>Uredi predmet</h3>
+
+    
     <div class="obroba">
-
+        <h3>Uredi predmet</h3>
+        <br>
 
         <form action="predmet_update.php" method="post">
             <input type="hidden" value = "<?php echo $predmet['id']; ?>" name="id"/>
@@ -30,7 +31,7 @@
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>
-</div>
+
 <?php
     include_once "footer.php";
 ?>

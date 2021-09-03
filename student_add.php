@@ -3,12 +3,13 @@
 
     adminOnly();
 ?>
-<div class = "vsebina-strani-forme">
 
 
-    <h3>Dodaj študenta</h3>
+
+    
     <div class ="obroba">
-
+        <h3>Dodaj študenta</h3>
+        <br>
         <form action="student_insert.php" method="post">
             <input type="text" name="ime" class="form-control" placeholder="Vnesi ime" required="required"/> <br />
             <input type="text" name="priimek" class="form-control" placeholder="Vnesi priimek" required="required"/> <br />
@@ -18,7 +19,6 @@
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>
-</div>
 <?php
     include_once "footer.php";
 ?>

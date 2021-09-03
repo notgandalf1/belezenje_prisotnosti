@@ -5,10 +5,12 @@
     $id_predmet = $_GET['id']; //id predmeta
 ?>
 
-<div class="vsebina-strani-forme">
 
-    <h3>Dodaj študente</h3>
+
+    
     <div class = "obroba">
+        <h3>Dodaj študente</h3>
+        <br>
 
         <form action="studenti_predmeti_insert.php" method="post">
             <input type="hidden" value = "<?php echo $id_predmet; ?>" name="id_predmet"/>   
@@ -49,7 +51,6 @@
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>
-</div>
 <?php
     include_once "footer.php";
 ?>

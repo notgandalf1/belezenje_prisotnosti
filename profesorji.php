@@ -1,17 +1,17 @@
 <?php
     include_once "header.php";
     include_once "db.php";
-
-    
-    if(isAdmin()) {
-        echo '<a href="profesor_add.php" class="btn btn-primary">Dodaj profesorja</a>';
-    }
-
 ?>
 
 <br/>
 <div class="obroba">
 <?php
+    if(isAdmin()) {
+        echo '<a href="profesor_add.php" class="btn btn-primary">Dodaj profesorja</a>';
+        echo '<hr>';
+    }
+
+
     $query = "SELECT * FROM profesorji ORDER BY ime ASC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();

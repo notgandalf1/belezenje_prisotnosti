@@ -2,14 +2,14 @@
     include_once "header.php";
     include_once "db.php";
 
-    
-        echo '<a href="predmet_add.php" class="btn btn-primary">Dodaj predmet</a>';
-
 ?>
 
 <br/>
 <div class="obroba">
 <?php
+    echo '<a href="predmet_add.php" class="btn btn-primary">Dodaj predmet</a>';
+    echo '<hr>';
+    
     $id = $_SESSION['profesor_id'];
     $query = "SELECT * FROM predmeti WHERE id_profesor=? ORDER BY ime_predmeta ASC";
     $stmt = $pdo->prepare($query);

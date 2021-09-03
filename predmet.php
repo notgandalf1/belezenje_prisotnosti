@@ -12,16 +12,24 @@
     $predmet = $stmt->fetch();
 ?>
 
-<h1><?php echo $predmet['ime_predmeta']?></h1>
-<h3><?php echo $predmet['leto_izvajanja'];?></h3>
+
 
 
 <div class = "obroba">
+<h1><?php echo $predmet['ime_predmeta']?></h1>
+<h3><?php echo $predmet['leto_izvajanja'];?></h3>
+<br>
 
 <?php
-echo '<a href="predavanje_add.php?id='.$id.'" class="btn btn-primary">Dodaj predavanje</a>';
-echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dodaj/odstrani študente</a>';
-
+echo '<div>';
+    echo '<a href="predavanje_add.php?id='.$id.'" class="btn btn-primary">Dodaj predavanje</a>';
+echo '</div>';
+echo '<hr>';
+echo '<div>';
+    echo '<a href="studenti_predmeti_add.php?id='.$id.'" class="btn btn-primary">Dodaj / odstrani študente</a>';
+echo '</div>';   
+echo '<hr>';
+echo '<div>';
 echo '<form action="prisotnost_insert.php" method="post">';
 echo '<input type="hidden" value = "'.$id.'" name="id_predmet"/>';
 echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';

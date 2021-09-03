@@ -12,14 +12,16 @@
     //iz baze preberem vse o profesorju
     $profesor = $stmt->fetch();
 ?>
-<div class = "vsebina-strani-forme">   
-    <div class="obroba">
-        <h1><?php echo $profesor['ime'].' '.$profesor['priimek'];?></h1>
-        <h3><?php echo $profesor['email'];?></h3>
 
-        <div>
+    <div class="obroba">
+        <div class="profil">
+            <h1 class="dinamicni-font"><?php echo $profesor['ime'].' '.$profesor['priimek'];?></h1>
+            <h3 class="dinamicni-font"><?php echo $profesor['email'];?></h3>
+        </div>
+
+        <div class="profil">
             <?php
-                echo '<img src="'.getProfilna($id).'" alt="slika" >';
+                echo '<img class="slika" src="'.getProfilna($id).'" alt="slika" >';
             ?>
         </div>
         <?php
@@ -28,7 +30,7 @@
         ?>
 
         <hr>
-        <h3>Naloži profilno sliko</h3>
+        <h3 class="dinamicni-font">Naloži profilno sliko</h3>
         <form action="profilna_slika_upload.php" method="post" enctype="multipart/form-data">
             <input type="hidden" value = "<?php echo $profesor['id']; ?>" name="id"/>
             <input type="file" name="file" class="form-control"/> <br/>
@@ -41,7 +43,6 @@
             } //KONEC IF STAVKA
         ?>
     </div>
-</div>
 
 
 

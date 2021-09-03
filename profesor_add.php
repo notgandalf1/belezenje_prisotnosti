@@ -4,10 +4,11 @@
     adminOnly();
 ?>
 
-<div class = "vsebina-strani-forme">
-    <h3>Dodaj profesorja</h3>    
-    <div class = "obroba">
+
     
+    <div class = "obroba">
+        <h3>Dodaj profesorja</h3>   
+        <br> 
 
 
         <form action="profesor_insert.php" method="post">
@@ -24,7 +25,6 @@
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>
-</div>
 <?php
     include_once "footer.php";
 ?>

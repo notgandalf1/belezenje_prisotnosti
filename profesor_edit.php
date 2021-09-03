@@ -14,9 +14,11 @@
     //iz baze preberem vse o profesorju, ki ga urejam
     $profesor = $stmt->fetch();
 ?>
-<div class = "vsebina-strani-forme">
-    <h2>Uredi profesorja</h2>
+
+    
     <div class="obroba">
+        <h2>Uredi profesorja</h2>
+        <br>
 
         <form action="profesor_update.php" method="post">
             <input type="hidden" value = "<?php echo $profesor['id']; ?>" name="id"/>
@@ -38,7 +40,6 @@
             <input type="submit" class="btn btn-primary" value="Shrani"/>
         </form>
     </div>
-</div>
 
 <?php
 include_once "footer.php";
