@@ -11547,7 +11547,6 @@ html {
 
 }
 
-
 .element-left {
   float: left;
   padding: 5px;
@@ -11574,7 +11573,7 @@ html {
 
 .slika {
   max-width: 100%;
-  max-height: 500px;
+  max-height: 420px;
 }
  .dinamicni-font {
    font-size: min(3.5vw, 30px);

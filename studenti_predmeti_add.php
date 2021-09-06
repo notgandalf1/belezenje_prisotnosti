@@ -35,19 +35,26 @@
                 while($row = $stmt->fetch()) {
                     
             
-                    echo '<div class="student">';
-                    if(in_array($row['id'],$studenti)) {
-                        echo '<input type="checkbox" checked="checked" name="studenti[]" value="'.$row['id'].'"/>';
-                    }
-                    else {
-                        echo '<input type="checkbox" name="studenti[]" value="'.$row['id'].'"/>';
-                    }
-                    echo $row['priimek'].' '.$row['ime'].' '.$row['studentska_stevilka'];
+                    echo '<div class="vsi-elementi">';
+                        echo '<div class="element-left">';
+                            if(in_array($row['id'],$studenti)) {
+                                echo '<label><input type="checkbox" checked="checked" name="studenti[]" value="'.$row['id'].'"/><br>'.$row['priimek'].'<br>'.$row['ime'].'</label>';
+                            }
+                            else {
+                                echo '<label><input type="checkbox" name="studenti[]" value="'.$row['id'].'"/><br>'.$row['priimek'].'<br>'.$row['ime'].'</label>';
+                            }
+                        echo '</div>';
+                        echo '<div class="element-middle">';
+                        echo '</div>';
+                        echo '<div class="element-right">';
+                            echo $row['studentska_stevilka'];
+                        echo '</div>';
                     echo '</div>';
                 }
             ?>
 
-            <input type="submit" class="btn btn-primary text-black" name="submit" value="Shrani"/> <br />
+            <input type="submit" class="btn btn-primary" name="submit" value="Shrani"/>
+            <a href="predmet.php?id=<?php echo $id_predmet;?>" class="btn btn-primary">Nazaj</a>
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>

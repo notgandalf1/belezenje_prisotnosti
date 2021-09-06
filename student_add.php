@@ -15,7 +15,7 @@
             <input type="text" name="priimek" class="form-control" placeholder="Vnesi priimek" required="required"/> <br />
             <input type="number" name="studentska_stevilka" min="10000000000" max="99999999999" class="form-control" placeholder="Vnesi vpisno številko študenta" required="required"/> <br />
             
-            <input type="submit" class="btn btn-primary text-black" name="submit" value="Shrani"/> <br />
+            <input type="submit" class="btn btn-primary" name="submit" value="Shrani"/> <br />
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>

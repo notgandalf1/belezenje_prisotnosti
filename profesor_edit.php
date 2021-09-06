@@ -31,12 +31,13 @@
             <?php
                 //če je profesor admin, potem že obkljuka da je admin
                 if($profesor['admin'] == 1) {
-                    echo '<input type="checkbox" checked="checked" name="admin" value="1"/>Admin <br />';
+                    echo '<label><input type="checkbox" checked="checked" name="admin" value="1"/>&emsp;Admin</label> <br />';
                 }
                 else {
-                    echo '<input type="checkbox" name="admin" value="1"/>Admin <br />';
+                    echo '<label><input type="checkbox" name="admin" value="1"/>&emsp;Admin</label> <br />';
                 }
-            ?>    
+            ?> 
+            <br>   
             <input type="submit" class="btn btn-primary" value="Shrani"/>
         </form>
     </div>

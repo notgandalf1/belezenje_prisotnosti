@@ -19,9 +19,9 @@
             <input type="password" name="geslo2" class="form-control" placeholder="Ponovno vnesi geslo" required="required"/> <br />
             
             <!-- check ali bo narejeni uporabnik/profesor imel admin pravice ali ne-->
-            <input type="checkbox" name="admin" value="1"/>Admin <br />
-            
-            <input type="submit" class="btn btn-primary text-black" name="submit" value="Shrani"/> <br />
+            <label><input type="checkbox" name="admin" value="1"/>&emsp;Admin</label> <br>
+            <br>
+            <input type="submit" class="btn btn-primary" name="submit" value="Shrani"/> <br />
             <!--<input type="reset" name="submit" value="Pobriši"/> <br /> -->
         </form>
     </div>
