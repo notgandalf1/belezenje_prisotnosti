@@ -23,7 +23,7 @@
         echo '<div class="vsi-elementi">';
             echo '<div class="element-left">';
                 echo '<a href="profesor.php?id='.$row['id'].'" class="pisava-gumbi">';
-                    echo $row['ime'].'<br>'.$row['priimek'];
+                    echo '<label class="dinamicni-font-s">'.$row['ime'].'<br>'.$row['priimek'].'</label>';
                 echo '</a>';
             echo '</div>';
             echo '<div class="element-middle">';

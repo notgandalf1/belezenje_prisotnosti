@@ -11578,3 +11578,7 @@ html {
  .dinamicni-font {
    font-size: min(3.5vw, 30px);
  }
+
+ .dinamicni-font-s {
+  font-size: min(4vw, 16px);
+}
