@@ -34,7 +34,17 @@ if(!empty($email) && !empty($geslo)) {
             header("Location: index.php"); 
             die(); 
         }
+        else {
+            //napačno geslo
+            echo '<script type="text/javascript">alert("Napačno geslo!");window.location="prijava.php";</script>';
+            die();
+        }
+    } else {
+        //napačen email
+        echo '<script type="text/javascript">alert("Napačen email!");window.location="prijava.php";</script>';
+        die();
     }
+
 }
 
 //če se if stavek ne izvede, preusmeri nazaj na login

@@ -12,73 +12,86 @@ $geslo1 = $_POST['geslo1'];
 $geslo2 = $_POST['geslo2'];
 $admin = (int) $_POST['admin'];
 
-//preverim ali so podatki polni in gesli enaki (geslo ne rabi bit polno, lahka sta oba null kr editamo)
-if(!empty($ime) && !empty($priimek) && !empty($email) 
-&& ($geslo1==$geslo2)) {
-    
-    //če je nastavljeno novo geslo, posodobimo vse
-    if(!empty($geslo1)) {
-        $geslo = password_hash($geslo1,PASSWORD_DEFAULT);
 
-        //vnos v bazo
-        $query = "UPDATE profesorji SET ime=?, priimek=?, email=?, geslo=? WHERE id=?";
+try {
+    //preverim ali so podatki polni (razen gesel)
+    if(!empty($ime) && !empty($priimek) && !empty($email)) {
+        
+        //če je nastavljeno novo geslo, preverimo, če sta gesli enaki in posodobimo vse
+        if(!empty($geslo1)) {
+            if ($geslo1==$geslo2) {
+                
+                $geslo = password_hash($geslo1,PASSWORD_DEFAULT);
 
-        //pripravi sql stavek tako, da sciti pred SQL inserti
-        $stmt = $pdo->prepare($query); 
-        //izvede sql stavek
-        $stmt->execute([$ime,$priimek,$email,$geslo,$id]);
+                //vnos v bazo
+                $query = "UPDATE profesorji SET ime=?, priimek=?, email=?, geslo=? WHERE id=?";
 
-        //nastavi admina če je checkbox bik checked
-        if($admin == 1) {
+                //pripravi sql stavek tako, da sciti pred SQL inserti
+                $stmt = $pdo->prepare($query); 
+                //izvede sql stavek
+                $stmt->execute([$ime,$priimek,$email,$geslo,$id]);
 
-            $query = "UPDATE profesorji SET admin=? WHERE id=?";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $id]);
+                //nastavi admina če je checkbox bik checked
+                if($admin == 1) {
+
+                    $query = "UPDATE profesorji SET admin=? WHERE id=?";
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute([$admin, $id]);
+                }
+                //odstrani admin pravice, če je checkbox unchecked
+                else if($admin == 0) {
+                    $query = "UPDATE profesorji SET admin=? WHERE id=?";
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute([$admin, $id]);
+                }
+            }
+            else {
+                echo '<script type="text/javascript">alert("Gesli se ne ujemata!");window.location="profesor_edit.php?id='.$id.'";</script>';
+                die();
+            }
+
+
         }
-        //odstrani admin pravice, če je checkbox unchecked
-        else if($admin == 0) {
-            $query = "UPDATE profesorji SET admin=? WHERE id=?";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $id]);
+        //če je polje z gesli prazno, potem posodobimo vse razen gesla
+        else {
+            //vnos v bazo
+            $query = "UPDATE profesorji SET ime=?, priimek=?, email=? WHERE id=?";
+
+            //pripravi sql stavek tako, da sciti pred SQL inserti
+            $stmt = $pdo->prepare($query); 
+            //izvede sql stavek
+            $stmt->execute([$ime,$priimek,$email,$id]);
+
+            //nastavi admina če je checkbox bik checked
+            if($admin == 1) {
+
+                $query = "UPDATE profesorji SET admin=? WHERE id=?";
+                $stmt = $pdo->prepare($query);
+                $stmt->execute([$admin, $id]);
+            }
+            //odstrani admin pravice, če je checkbox unchecked
+            else if($admin == 0) {
+                $query = "UPDATE profesorji SET admin=? WHERE id=?";
+                $stmt = $pdo->prepare($query);
+                $stmt->execute([$admin, $id]);
+            }
         }
+        
 
+        
 
+        //preusmeritev na seznam profesorjev
+        header("Location: profesorji.php"); 
+        //nic pod die() se ne izvede
+        die(); 
     }
-    //če je polje z gesli prazno, potem posodobimo vse razen gesla
-    else {
-        //vnos v bazo
-        $query = "UPDATE profesorji SET ime=?, priimek=?, email=? WHERE id=?";
 
-        //pripravi sql stavek tako, da sciti pred SQL inserti
-        $stmt = $pdo->prepare($query); 
-        //izvede sql stavek
-        $stmt->execute([$ime,$priimek,$email,$id]);
+    //če se if stavek ne izvede, preusmeri nazaj na vnos
+    header("Location: profesor_edit.php?id=$id");
+    die();
 
-        //nastavi admina če je checkbox bik checked
-        if($admin == 1) {
-
-            $query = "UPDATE profesorji SET admin=? WHERE id=?";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $id]);
-        }
-        //odstrani admin pravice, če je checkbox unchecked
-        else if($admin == 0) {
-            $query = "UPDATE profesorji SET admin=? WHERE id=?";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $id]);
-        }
-    }
-    
-
-    
-
-    //preusmeritev na seznam profesorjev
-    header("Location: profesorji.php"); 
-    //nic pod die() se ne izvede
-    die(); 
+} catch (PDOException $e) {
+    echo '<script type="text/javascript">alert("Ta email že obstaja!");window.location="profesor_edit.php?id='.$id.'";</script>';
+    die();
 }
-
-//če se if stavek ne izvede, preusmeri nazaj na vnos
-header("Location: profesor_edit.php?id=$id");
-die();
 ?>
