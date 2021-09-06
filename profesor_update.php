@@ -3,7 +3,7 @@
 include_once "seja.php";
 include_once "db.php";
 
-$id = (int) $_GET['id'];
+$id = (int) $_POST['id'];
 
 $ime = $_POST['ime'];
 $priimek = $_POST['priimek'];
@@ -31,15 +31,15 @@ if(!empty($ime) && !empty($priimek) && !empty($email)
         //nastavi admina če je checkbox bik checked
         if($admin == 1) {
 
-            $query = "UPDATE profesorji SET admin=? WHERE email=?";
+            $query = "UPDATE profesorji SET admin=? WHERE id=?";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $email]);
+            $stmt->execute([$admin, $id]);
         }
         //odstrani admin pravice, če je checkbox unchecked
         else if($admin == 0) {
-            $query = "UPDATE profesorji SET admin=? WHERE email=?";
+            $query = "UPDATE profesorji SET admin=? WHERE id=?";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $email]);
+            $stmt->execute([$admin, $id]);
         }
 
 
@@ -57,15 +57,15 @@ if(!empty($ime) && !empty($priimek) && !empty($email)
         //nastavi admina če je checkbox bik checked
         if($admin == 1) {
 
-            $query = "UPDATE profesorji SET admin=? WHERE email=?";
+            $query = "UPDATE profesorji SET admin=? WHERE id=?";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $email]);
+            $stmt->execute([$admin, $id]);
         }
         //odstrani admin pravice, če je checkbox unchecked
         else if($admin == 0) {
-            $query = "UPDATE profesorji SET admin=? WHERE email=?";
+            $query = "UPDATE profesorji SET admin=? WHERE id=?";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$admin, $email]);
+            $stmt->execute([$admin, $id]);
         }
     }
     
