@@ -15,7 +15,7 @@
 
 
 
-<div class = "obroba">
+<div class = "obroba-tabela">
 <h1><?php echo $predmet['ime_predmeta']?></h1>
 <h3><?php echo $predmet['leto_izvajanja'];?></h3>
 <br>
@@ -35,6 +35,7 @@ echo '<input type="hidden" value = "'.$id.'" name="id_predmet"/>';
 echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
 ?>
 <div class="table-responsive">
+    <br>
     <table class="table table-bordered table-hover table-sm table-primary">
     <thead>
         <tr>
@@ -52,6 +53,7 @@ echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
                 
                 
                 echo '<th class="tabela-stolpec">'.$row['datum_izvajanja'];
+                echo '<br>';
                 echo '<a class="tabela-gumb" href="predavanje_delete.php?id='.$row['id'].' " onclick="return confirm(\'Prepričani?\')">Izbriši</a> ';
                 echo '</th>';
                 
@@ -80,7 +82,7 @@ echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
             while($row = $stmt->fetch()) {
                 
                 echo '<tr>';
-                echo '<th>'.$row['priimek'].' '.$row['ime'];
+                echo '<th>'.$row['priimek'].'<br>'.$row['ime'];
                 echo '</th>';
                 echo '<input type="hidden" value = "'.$row['id_student'].'" name="studentiVsi[]"/>';
 

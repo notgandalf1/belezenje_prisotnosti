@@ -22,7 +22,7 @@
         echo '<div class="vsi-elementi">';
             echo '<div class="element-left">';
                 echo '<a href="predmet.php?id='.$row['id'].'" class="pisava-gumbi">';
-                    echo $row['ime_predmeta'].'&emsp;'.$row['leto_izvajanja'];
+                    echo $row['ime_predmeta'].'<br>'.$row['leto_izvajanja'];
                 echo '</a>';
             echo '</div>';
             echo '<div class="element-middle">';

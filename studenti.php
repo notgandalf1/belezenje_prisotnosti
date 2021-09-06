@@ -22,7 +22,7 @@
 
         echo '<div class="vsi-elementi">';
             echo '<div class="element-left">';
-                echo $row['priimek'].' '.$row['ime'].'<br>'.$row['studentska_stevilka'];
+                echo $row['priimek'].'<br>'.$row['ime'].'<br>'.$row['studentska_stevilka'];
             echo '</div>';
             echo '<div class="element-middle">';
             echo '</div>';  

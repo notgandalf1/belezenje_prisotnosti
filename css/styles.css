@@ -3025,8 +3025,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+  background-color: #2e92e4;
+  border-color: #2e92e4;
 }
 .btn-primary:hover {
   color: #fff;
@@ -11513,6 +11513,7 @@ html {
 
 .tabela-gumb{
   float:right;
+  color: #2e92e4;
 }
 
 .tabela-stolpec{
@@ -11526,7 +11527,17 @@ html {
   border-radius: 15px;
   padding: 20px;
   margin: 0 auto; 
-  max-width: 1000px;
+  max-width: 500px;
+}
+
+.obroba-tabela {
+  border-style: solid;
+  border-color: white;
+  border-width: thin;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 auto; 
+  max-width: 1500px;
 }
 
 .vsi-elementi:after {
