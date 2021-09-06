@@ -46,6 +46,7 @@ try {
                 }
             }
             else {
+                //ce se gesli ne ujemata
                 echo '<script type="text/javascript">alert("Gesli se ne ujemata!");window.location="profesor_edit.php?id='.$id.'";</script>';
                 die();
             }
@@ -76,10 +77,6 @@ try {
                 $stmt->execute([$admin, $id]);
             }
         }
-        
-
-        
-
         //preusmeritev na seznam profesorjev
         header("Location: profesorji.php"); 
         //nic pod die() se ne izvede
