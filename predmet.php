@@ -107,10 +107,10 @@ echo '<input type="submit" class="btn btn-primary" value="Shrani prisotnost"/>';
                     $result = $stmt4->fetch();
                     
                     if(isset($result['prisotnost'])) {
-                        echo '<input type="checkbox" checked="checked" name="prisotnost[]" value="'.$string.'"/>';
+                        echo '<label class="tabela-celica"><input type="checkbox" checked="checked" name="prisotnost[]" value="'.$string.'"/><br><br></label>';
                     }
                     else {
-                        echo '<input type="checkbox" name="prisotnost[]" value="'.$string.'"/>';
+                        echo '<label class="tabela-celica"><input type="checkbox" name="prisotnost[]" value="'.$string.'"/><br><br></label>';
                     }
                     echo '</td>';
                     

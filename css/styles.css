@@ -11520,6 +11520,12 @@ html {
   min-width: 100px;
 }
 
+.tabela-celica {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .obroba {
   border-style: solid;
   border-color: white;
