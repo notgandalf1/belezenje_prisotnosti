@@ -7,7 +7,7 @@
 
     
     <div class ="obroba">
-        <h3>Dodaj novo predavanje</h3>
+        <h3 class="dinamicni-font-l">Dodaj novo predavanje</h3>
         <br>
 
         <form action="predavanje_insert.php" method="post">

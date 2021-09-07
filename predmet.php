@@ -18,7 +18,6 @@
 <div class = "obroba-tabela">
 <h1><?php echo $predmet['ime_predmeta']?></h1>
 <h3><?php echo $predmet['leto_izvajanja'];?></h3>
-<br>
 
 <?php
 echo '<div>';

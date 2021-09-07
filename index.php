@@ -7,6 +7,7 @@
 <br/>
 <div class="obroba">
 <?php
+    echo '<h3 class="dinamicni-font-l">Moji predmeti</h3>';
     echo '<a href="predmet_add.php" class="btn btn-primary">Dodaj predmet</a>';
     echo '<hr>';
     

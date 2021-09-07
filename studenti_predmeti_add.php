@@ -9,7 +9,7 @@
 
     
     <div class = "obroba">
-        <h3>Dodaj študente</h3>
+        <h3 class="dinamicni-font-l">Dodaj študente</h3>
         <br>
 
         <form action="studenti_predmeti_insert.php" method="post">

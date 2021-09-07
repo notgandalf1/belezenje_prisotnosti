@@ -6,6 +6,7 @@
 <br/>
 <div class="obroba">
 <?php
+    echo '<h3 class="dinamicni-font-l">Študenti</h3>';
      if(isAdmin()) {
         echo '<a href="student_add.php" class="btn btn-primary">Dodaj študenta</a>';
         echo '<hr>';
