@@ -19,12 +19,20 @@
     //izpis vseh lastnih predmetov
     while($row = $stmt->fetch()) {
         
+        //štetje študentov v predmetu
+        $query = "SELECT * FROM studenti_predmeti WHERE id_predmet=?";
+        $stmt2 = $pdo->prepare($query);
+        $stmt2->execute([$row['id']]);
+        $stStudentov = $stmt2->rowCount();
+        
+
 
         echo '<div class="vsi-elementi">';
             echo '<div class="element-left">';
                 echo '<a href="predmet.php?id='.$row['id'].'" class="pisava-gumbi">';
                     echo '<label class="dinamicni-font-s">'.$row['ime_predmeta'].'<br>'.$row['leto_izvajanja'].'</label>';
-                echo '</a>';
+                echo '</a><br>';
+                echo '<label class="dinamicni-font-s">Študenti: '.$stStudentov.'</label>'; //izpis števila študentov v predmetu
             echo '</div>';
             echo '<div class="element-middle">';
             echo '</div>';  
